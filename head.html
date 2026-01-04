@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Academy - Educating Future AI Leaders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(10, 14, 39, 0.9);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(79, 172, 254, 0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #0a0e27;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #b8c5d6;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4facfe;
+        }
+
+        .why-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: rgba(79, 172, 254, 0.1);
+            border-radius: 30px;
+            border: 2px solid rgba(79, 172, 254, 0.2);
+        }
+
+        .why-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .why-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .why-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #00f2fe;
+        }
+
+        .videos-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .videos-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .video-container h3 {
+            margin-top: 1rem;
+            color: #4facfe;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            color: #4facfe;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #00f2fe;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">AI</div>
+                <h1>AI ACADEMY</h1>
+            </div>
+            <a href="https://calendly.com/aicodingacademy/day-trial" target="_blank" class="cta-button">Book Free Day Trial</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Educating <span class="highlight">Future AI Leaders</span></h2>
+        <p>Building AI Skills, Having Fun Creating AI Apps 🎓🚀💡</p>
+        <a href="https://calendly.com/aicodingacademy/day-trial" target="_blank" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2.5rem;">Book Your Free Day Trial</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Hands-On Learning</h3>
+            <p>Build real AI applications from day one. No boring theory—just practical skills that matter in today's world.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Future-Ready Skills</h3>
+            <p>Master the tools that professionals use: n8n automation, AI APIs, social media bots, and more.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>Community & Support</h3>
+            <p>Join a community of young innovators. Learn together, share projects, and get expert guidance every step.</p>
+        </div>
+    </section>
+
+    <section class="why-section">
+        <h2>Why AI Education Matters Now</h2>
+        
+        <div class="why-content">
+            <div class="why-card">
+                <h4>🌟 For Teens</h4>
+                <p>AI is transforming every industry. Learning these skills now puts you ahead of the curve, opens doors to amazing opportunities, and lets you create things that can change the world. Plus, it's actually fun when you see your creations come to life!</p>
+            </div>
+            
+            <div class="why-card">
+                <h4>👪 For Parents</h4>
+                <p>AI literacy is becoming as essential as knowing how to use a computer. By investing in your teen's AI education now, you're preparing them for a future where these skills will be fundamental across all careers—from medicine to art, business to science.</p>
+            </div>
+            
+            <div class="why-card">
+                <h4>💼 Career Advantage</h4>
+                <p>Jobs requiring AI skills are growing 5x faster than other jobs. Companies are desperate for people who understand AI. Starting young means your teen will have years of experience by the time they enter the workforce.</p>
+            </div>
+            
+            <div class="why-card">
+                <h4>🎨 Creativity Unleashed</h4>
+                <p>AI isn't just about coding—it's a creative tool. Students learn to automate social media, design intelligent apps, and build projects that showcase their unique ideas and personality.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="videos-section">
+        <h2>See What Students Are Building</h2>
+        <div class="video-grid">
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/YO16uf6Kxys" title="Telegram Bot Automation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h3>Telegram Bot Automation</h3>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/Yl5klGOI1Vs" title="Social Media Automation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h3>Social Media Automation</h3>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/5SyzmIW4TLs" title="Google API Integration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h3>Google API Integration</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero" style="padding: 4rem 2rem;">
+        <h2>Ready to Start Your <span class="highlight">AI Journey?</span></h2>
+        <p style="margin-bottom: 2rem;">Join hundreds of students already building their future with AI</p>
+        <a href="https://calendly.com/aicodingacademy/day-trial" target="_blank" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2.5rem;">Book Free Trial Now</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 AI Academy. Building the next generation of AI innovators.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/aitoolsmaster" target="_blank" class="social-link">📱 Instagram</a>
+            <a href="https://www.youtube.com/@aicodingacademy" target="_blank" class="social-link">🎥 YouTube</a>
+        </div>
+    </footer>
+</body>
+</html>
